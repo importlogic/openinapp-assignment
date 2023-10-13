@@ -11,7 +11,7 @@ export default function Login() {
         <div className='select-none'>
             <div
                 className='flex min-h-screen p-10'
-                style={{ background: 'linear-gradient(98deg, #4285F4 40%, #F8FAFF calc(40% + 1px));' }}
+                style={{ background: 'linear-gradient(98deg, #4285F4 40%, #F8FAFF calc(40% + 1px))' }}
             >
                 <div className='flex w-[35%] flex-col'>
                     <div className='font-poppins flex grow text-[24px] font-bold text-white'>LOGO</div>
@@ -26,8 +26,8 @@ export default function Login() {
                     </div>
                 </div>
                 <div className='flex grow'></div>
-                <div className='flex w-[55%] px-48 py-20'>
-                    <div className='flex grow flex-col'>
+                <div className='flex w-[55%] items-center justify-center'>
+                    <div className='w-[422px]'>
                         <p className='font-montserrat text-[32px] font-bold'>Sign In</p>
                         <p className='font-lato text-[16px]'>Sign in to your account</p>
                         <div className='mt-6 flex space-x-5'>
