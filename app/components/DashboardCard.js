@@ -7,7 +7,7 @@ export default function DashboardCard(props) {
     return (
         <div className='h-[120px] rounded-2xl border-[2px] border-[#E0E0E0] p-4 shadow-lg'>
             <div className={`mb-2 flex h-[32px] w-[32px] items-center justify-center rounded-full ${icon_bg}`}>
-                <Image src={icon} />
+                <Image src={icon} alt=''/>
             </div>
             <p className='font-lato text-[13px]'>{title}</p>
             <div className='flex'>

@@ -68,7 +68,7 @@ export default function ProfileCard() {
                         className='flex h-[76px] w-[76px] cursor-pointer items-center justify-center rounded-full bg-[#F2F2F2]'
                         onClick={openModal}
                     >
-                        <Image src={plus} className='h-[51px] w-[51px] ' />
+                        <Image src={plus} className='h-[51px] w-[51px] ' alt=''/>
                     </div>
                     <p className='text-[16px] font-semibold text-[#858585]'>Add Profile</p>
                 </>
@@ -76,30 +76,30 @@ export default function ProfileCard() {
                 <div className='flex w-full grow flex-col'>
                     <div className='flex items-center'>
                         <p className='flex grow text-[24px] font-semibold'>{userDetails.name}</p>
-                        <Image src={edit} className='h-[20px] w-[20px] cursor-pointer' onClick={openModal} />
+                        <Image src={edit} className='h-[20px] w-[20px] cursor-pointer' onClick={openModal} alt=''/>
                     </div>
                     <div className='my-6 grid grow grid-cols-2 items-center px-5 gap-x-10'>
                         <div className='flex items-center space-x-2'>
                             <div className='flex h-[28px] w-[28px] items-center justify-center rounded-full bg-[#E9F9EB]'>
-                                <Image src={phoneIcon} />
+                                <Image src={phoneIcon} alt=''/>
                             </div>
                             <p className='text-[14px] underline'>{userDetails.phone}</p>
                         </div>
                         <div className={`flex items-center space-x-2 ${userDetails.instagram ? '' : 'hidden'}`}>
                             <div className='flex h-[28px] w-[28px] items-center justify-center rounded-full bg-[#FFE9EC]'>
-                                <Image src={instagramIcon} />
+                                <Image src={instagramIcon} alt=''/>
                             </div>
                             <p className='text-[14px] underline'>{userDetails.instagram}</p>
                         </div>
                         <div className='flex items-center space-x-2'>
                             <div className='flex h-[28px] w-[28px] items-center justify-center rounded-full bg-[#EBE6F9]'>
-                                <Image src={mailIcon} />
+                                <Image src={mailIcon} alt=''/>
                             </div>
                             <p className='text-[14px] underline'>{userDetails.email}</p>
                         </div>
                         <div className={`flex items-center space-x-2 ${userDetails.youtube ? '' : 'hidden'}`}>
                             <div className='flex h-[28px] w-[28px] items-center justify-center rounded-full bg-[#FFE9E9]'>
-                                <Image src={youtubeIcon} />
+                                <Image src={youtubeIcon} alt=''/>
                             </div>
                             <p className='text-[14px] underline'>{userDetails.youtube}</p>
                         </div>

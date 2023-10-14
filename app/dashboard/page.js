@@ -169,7 +169,7 @@ export default function Dashboard() {
                     </svg>
                 </label>
                 <p className={`grow text-center font-montserrat text-[36px] font-bold transition ease-in-out duration-1000 ${menuOpen ? 'text-white' : 'text-black'}`}>Board.</p>
-                <Image src={avatar} className='h-[40px] w-[40px] cursor-pointer rounded-full' />
+                <Image src={avatar} className='h-[40px] w-[40px] cursor-pointer rounded-full' alt=''/>
             </div>
 
             <div className={`flex flex-col grow p-5 space-y-8 justify-center ${!menuOpen ? 'hidden' : ''}`}>
@@ -189,23 +189,23 @@ export default function Dashboard() {
                     <p className='mb-[50px] font-montserrat text-[36px] font-bold'>Board.</p>
                     <div className='flex grow flex-col space-y-10'>
                         <div className='flex items-center space-x-4'>
-                            <Image src={dashboard} className='h-[18px] w-[18px]' />
+                            <Image src={dashboard} className='h-[18px] w-[18px]' alt=''/>
                             <p className='cursor-pointer font-montserrat text-[18px] font-bold'>Dashboard</p>
                         </div>
                         <div className='flex items-center space-x-4'>
-                            <Image src={transactions} className='h-[18px] w-[18px]' />
+                            <Image src={transactions} className='h-[18px] w-[18px]' alt=''/>
                             <p className='cursor-pointer font-montserrat text-[18px]'>Transactions</p>
                         </div>
                         <div className='flex items-center space-x-4'>
-                            <Image src={schedules} className='h-[18px] w-[18px]' />
+                            <Image src={schedules} className='h-[18px] w-[18px]' alt=''/>
                             <p className='cursor-pointer font-montserrat text-[18px]'>Schedules</p>
                         </div>
                         <div className='flex items-center space-x-4'>
-                            <Image src={user} className='h-[18px] w-[18px]' />
+                            <Image src={user} className='h-[18px] w-[18px]' alt=''/>
                             <p className='cursor-pointer font-montserrat text-[18px]'>Users</p>
                         </div>
                         <div className='flex items-center space-x-4'>
-                            <Image src={settings} className='h-[18px] w-[18px]' />
+                            <Image src={settings} className='h-[18px] w-[18px]' alt=''/>
                             <p className='cursor-pointer font-montserrat text-[18px]'>Settings</p>
                         </div>
                     </div>
@@ -217,11 +217,11 @@ export default function Dashboard() {
                 <div className='hidden md:flex'>
                     <p className='font-montserrat text-[24px] font-bold'>Dashboard</p>
                     <div className='flex grow flex-row-reverse items-center space-x-4 space-x-reverse'>
-                        <Image src={avatar} className='h-[30px] w-[30px] cursor-pointer rounded-full' />
-                        <Image src={notification} className='h-[21px] w-[18px] cursor-pointer' />
+                        <Image src={avatar} className='h-[30px] w-[30px] cursor-pointer rounded-full' alt=''/>
+                        <Image src={notification} className='h-[21px] w-[18px] cursor-pointer' alt=''/>
                         <div className='relative flex w-[197px] items-center bg-white font-lato text-[14px]'>
                             <input type='text' placeholder='Search...' className='px-2 py-1 outline-gray-400'></input>
-                            <Image src={search} className='absolute right-2 h-[12px] w-[12px]' />
+                            <Image src={search} className='absolute right-2 h-[12px] w-[12px]' alt=''/>
                         </div>
                     </div>
                 </div>

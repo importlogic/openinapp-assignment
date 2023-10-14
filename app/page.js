@@ -19,10 +19,10 @@ export default function Login() {
                         Board.
                     </div>
                     <div className='flex grow items-end justify-center space-x-8'>
-                        <Image src={github} className='h-[32px] w-[32px] cursor-pointer invert' />
-                        <Image src={twitter} className='h-[32px] w-[32px] cursor-pointer invert' />
-                        <Image src={linkedin} className='h-[32px] w-[32px] cursor-pointer invert' />
-                        <Image src={discord} className='h-[32px] w-[32px] cursor-pointer invert' />
+                        <Image src={github} className='h-[32px] w-[32px] cursor-pointer invert' alt=''/>
+                        <Image src={twitter} className='h-[32px] w-[32px] cursor-pointer invert' alt=''/>
+                        <Image src={linkedin} className='h-[32px] w-[32px] cursor-pointer invert' alt=''/>
+                        <Image src={discord} className='h-[32px] w-[32px] cursor-pointer invert' alt=''/>
                     </div>
                 </div>
                 <div className='flex grow'></div>
@@ -32,11 +32,11 @@ export default function Login() {
                         <p className='font-lato text-[16px]'>Sign in to your account</p>
                         <div className='mt-6 flex space-x-5'>
                             <div className='font-montserat flex h-[33px] grow cursor-pointer items-center justify-center space-x-5 rounded-lg bg-white text-[12px] text-[#858585]'>
-                                <Image src={google} className='mb-0.5' />
+                                <Image src={google} className='mb-0.5' alt=''/>
                                 <p>Sign in with Google</p>
                             </div>
                             <div className='font-montserat flex h-[33px] grow cursor-pointer items-center justify-center space-x-5 rounded-lg bg-white text-[12px] text-[#858585]'>
-                                <Image src={apple} className='mb-1' />
+                                <Image src={apple} className='mb-1' alt=''/>
                                 <p>Sign in with Apple</p>
                             </div>
                         </div>
@@ -63,7 +63,7 @@ export default function Login() {
                         </form>
 
                         <div className='flex font-lato text-[16px] justify-center space-x-1'>
-                            <p className='text-[#858585]'>Don't have an account?</p>
+                            <p className='text-[#858585]'>Don&apos;t have an account?</p>
                             <p className='text-[#346BD4] cursor-pointer'>Register here</p>
                         </div>
                     </div>
