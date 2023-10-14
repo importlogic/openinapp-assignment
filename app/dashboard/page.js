@@ -2,7 +2,6 @@
 
 import Image from 'next/image';
 import notification from '../../public/icons/notification.png';
-import avatar from '../../public/avatar.png';
 import search from '../../public/icons/search.png';
 
 import revenue from '../../public/icons/revenue.png';
@@ -18,13 +17,35 @@ import settings from '../../public/icons/settings.png';
 import DashboardCard from '../components/DashboardCard';
 import ProfileCard from '../components/ProfileCard';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import { Chart as ChartJS, ArcElement, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
 
 import { Bar, Doughnut } from 'react-chartjs-2';
 
+import { useRouter } from 'next/navigation';
+import { useSession } from 'next-auth/react';
+import { signOut } from 'next-auth/react';
+
 export default function Dashboard() {
+    const session = useSession();
+    const router = useRouter();
+    const [avatar, setAvatar] = useState('');
+    const [name, setName] = useState('');
+
+    function signOutGoogle() {
+        signOut('google');
+    }
+
+    useEffect(() => {
+        if (session && session.status === 'authenticated') {
+            setAvatar(session.data.user.image);
+            setName(session.data.user.name);
+        } else {
+            router.push('/');
+        }
+    }, [session]);
+
     const [menuOpen, setMenuOpen] = useState(false);
 
     ChartJS.register(ArcElement, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
@@ -141,10 +162,14 @@ export default function Dashboard() {
     };
 
     return (
-        <div className={`flex min-h-screen flex-col ${menuOpen ? 'bg-slate-700' : 'bg-[#F8FAFF]'} transition ease-in-out duration-1000 px-4 py-3 md:flex-row md:px-10 md:py-8`}>
+        <div
+            className={`flex min-h-screen flex-col ${
+                menuOpen ? 'bg-slate-700' : 'bg-[#F8FAFF]'
+            } px-4 py-3 transition duration-1000 ease-in-out md:flex-row md:px-10 md:py-8`}
+        >
             <div className='flex items-center md:hidden'>
                 <label className='swap swap-rotate'>
-                    <input type='checkbox' checked={menuOpen} onClick={() => setMenuOpen(!menuOpen)}/>
+                    <input type='checkbox' checked={menuOpen} onClick={() => setMenuOpen((prev) => !prev)} />
 
                     {/* hamburger icon */}
                     <svg
@@ -168,18 +193,44 @@ export default function Dashboard() {
                         <polygon points='400 145.49 366.51 112 256 222.51 145.49 112 112 145.49 222.51 256 112 366.51 145.49 400 256 289.49 366.51 400 400 366.51 289.49 256 400 145.49' />
                     </svg>
                 </label>
-                <p className={`grow text-center font-montserrat text-[36px] font-bold transition ease-in-out duration-1000 ${menuOpen ? 'text-white' : 'text-black'}`}>Board.</p>
-                <Image src={avatar} className='h-[40px] w-[40px] cursor-pointer rounded-full' alt=''/>
+                <p
+                    className={`grow text-center font-montserrat text-[36px] font-bold transition duration-1000 ease-in-out ${
+                        menuOpen ? 'text-white' : 'text-black'
+                    }`}
+                >
+                    Board.
+                </p>
+                <div className='dropdown dropdown-end'>
+                    <Image
+                        src={avatar}
+                        tabIndex={0}
+                        className='h-[40px] w-[40px] cursor-pointer rounded-full'
+                        alt=''
+                        width={40}
+                        height={40}
+                    />
+                    <ul
+                        tabIndex={0}
+                        className='dropdown-content menu bg-base-100 rounded-box z-[1] mt-2 w-52 border-[2px] border-[#E0E0E0] p-2 shadow-lg'
+                    >
+                        <li disabled className='pointer-events-none'>
+                            <p>Hi {name}</p>
+                        </li>
+                        <li onClick={signOutGoogle}>
+                            <p>Logout</p>
+                        </li>
+                    </ul>
+                </div>
             </div>
 
-            <div className={`flex flex-col grow p-5 space-y-8 justify-center ${!menuOpen ? 'hidden' : ''}`}>
-                <p className='cursor-pointer font-montserrat text-[36px] text-white font-bold'>Dashboard</p>
+            <div className={`flex grow flex-col justify-center space-y-8 p-5 ${!menuOpen ? 'hidden' : ''}`}>
+                <p className='cursor-pointer font-montserrat text-[36px] font-bold text-white'>Dashboard</p>
                 <p className='cursor-pointer font-montserrat text-[36px] text-white'>Transactions</p>
                 <p className='cursor-pointer font-montserrat text-[36px] text-white'>Schedules</p>
                 <p className='cursor-pointer font-montserrat text-[36px] text-white'>Users</p>
                 <p className='cursor-pointer font-montserrat text-[36px] text-white'>Settings</p>
             </div>
-            <div className={`flex flex-col p-5 space-y-4 ${!menuOpen ? 'hidden' : ''}`}>
+            <div className={`flex flex-col space-y-4 p-5 ${!menuOpen ? 'hidden' : ''}`}>
                 <p className='cursor-pointer font-montserrat text-[16px] text-white'>Help</p>
                 <p className='cursor-pointer font-montserrat text-[16px] text-white'>Contact Us</p>
             </div>
@@ -189,23 +240,23 @@ export default function Dashboard() {
                     <p className='mb-[50px] font-montserrat text-[36px] font-bold'>Board.</p>
                     <div className='flex grow flex-col space-y-10'>
                         <div className='flex items-center space-x-4'>
-                            <Image src={dashboard} className='h-[18px] w-[18px]' alt=''/>
+                            <Image src={dashboard} className='h-[18px] w-[18px]' alt='' />
                             <p className='cursor-pointer font-montserrat text-[18px] font-bold'>Dashboard</p>
                         </div>
                         <div className='flex items-center space-x-4'>
-                            <Image src={transactions} className='h-[18px] w-[18px]' alt=''/>
+                            <Image src={transactions} className='h-[18px] w-[18px]' alt='' />
                             <p className='cursor-pointer font-montserrat text-[18px]'>Transactions</p>
                         </div>
                         <div className='flex items-center space-x-4'>
-                            <Image src={schedules} className='h-[18px] w-[18px]' alt=''/>
+                            <Image src={schedules} className='h-[18px] w-[18px]' alt='' />
                             <p className='cursor-pointer font-montserrat text-[18px]'>Schedules</p>
                         </div>
                         <div className='flex items-center space-x-4'>
-                            <Image src={user} className='h-[18px] w-[18px]' alt=''/>
+                            <Image src={user} className='h-[18px] w-[18px]' alt='' />
                             <p className='cursor-pointer font-montserrat text-[18px]'>Users</p>
                         </div>
                         <div className='flex items-center space-x-4'>
-                            <Image src={settings} className='h-[18px] w-[18px]' alt=''/>
+                            <Image src={settings} className='h-[18px] w-[18px]' alt='' />
                             <p className='cursor-pointer font-montserrat text-[18px]'>Settings</p>
                         </div>
                     </div>
@@ -213,15 +264,42 @@ export default function Dashboard() {
                     <p className='cursor-pointer font-montserrat text-[14px]'>Contact Us</p>
                 </div>
             </div>
-            <div className={`flex grow flex-col space-y-6 px-0 py-4 md:px-10 transition ease-in-out duration-1000 ${menuOpen ? 'hidden' : ''}`}>
+            <div
+                className={`flex grow flex-col space-y-6 px-0 py-4 transition duration-1000 ease-in-out md:px-10 ${
+                    menuOpen ? 'hidden' : ''
+                }`}
+            >
                 <div className='hidden md:flex'>
                     <p className='font-montserrat text-[24px] font-bold'>Dashboard</p>
                     <div className='flex grow flex-row-reverse items-center space-x-4 space-x-reverse'>
-                        <Image src={avatar} className='h-[30px] w-[30px] cursor-pointer rounded-full' alt=''/>
-                        <Image src={notification} className='h-[21px] w-[18px] cursor-pointer' alt=''/>
+                        <div className='dropdown dropdown-end'>
+                            <Image
+                                src={avatar}
+                                tabIndex={0}
+                                className='h-[30px] w-[30px] cursor-pointer rounded-full'
+                                alt=''
+                                width={30}
+                                height={30}
+                            />
+
+                            <ul
+                                tabIndex={0}
+                                className='dropdown-content menu bg-base-100 rounded-box z-[1] mt-2 w-52 border-[2px] border-[#E0E0E0] p-2 shadow-lg'
+                            >
+                                <li disabled className='pointer-events-none'>
+                                    <p>Hi {name}</p>
+                                </li>
+
+                                <li onClick={signOutGoogle}>
+                                    <p>Logout</p>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <Image src={notification} className='h-[21px] w-[18px] cursor-pointer' alt='' />
                         <div className='relative flex w-[197px] items-center bg-white font-lato text-[14px]'>
                             <input type='text' placeholder='Search...' className='px-2 py-1 outline-gray-400'></input>
-                            <Image src={search} className='absolute right-2 h-[12px] w-[12px]' alt=''/>
+                            <Image src={search} className='absolute right-2 h-[12px] w-[12px]' alt='' />
                         </div>
                     </div>
                 </div>
