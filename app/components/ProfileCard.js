@@ -182,7 +182,7 @@ export default function ProfileCard() {
                                     </div>
                                     <div className='flex flex-row-reverse'>
                                         <button
-                                            className='btn rounded-xl bg-[#3E84F8] text-[14px] text-white'
+                                            className='btn rounded-xl hover:bg-[#3E84F8] bg-[#3E84F8] text-[14px] text-white'
                                             onClick={gotoSecondPage}
                                         >
                                             Next
@@ -225,7 +225,7 @@ export default function ProfileCard() {
                                     <div className='flex flex-row-reverse space-x-4 space-x-reverse'>
                                         <div>
                                             <button
-                                                className='btn rounded-xl bg-[#3E84F8] text-[14px] text-white'
+                                                className='btn rounded-xl hover:bg-[#3E84F8] bg-[#3E84F8] text-[14px] text-white'
                                                 onClick={submitProfileForm}
                                             >
                                                 Done
