@@ -211,7 +211,7 @@ export default function Dashboard() {
                     />
                     <ul
                         tabIndex={0}
-                        className='dropdown-content menu bg-base-100 rounded-box z-[1] mt-2 w-52 border-[2px] border-[#E0E0E0] p-2 shadow-lg'
+                        className='menu dropdown-content rounded-box z-[1] mt-2 w-52 border-[2px] border-[#E0E0E0] bg-base-100 p-2 shadow-lg'
                     >
                         <li disabled className='pointer-events-none'>
                             <p>Hi {name}</p>
@@ -272,7 +272,7 @@ export default function Dashboard() {
                 <div className='hidden md:flex'>
                     <p className='font-montserrat text-[24px] font-bold'>Dashboard</p>
                     <div className='flex grow flex-row-reverse items-center space-x-4 space-x-reverse'>
-                        <div className='dropdown dropdown-end'>
+                        <div className='dropdown-end dropdown'>
                             <Image
                                 src={avatar}
                                 tabIndex={0}
@@ -284,7 +284,7 @@ export default function Dashboard() {
 
                             <ul
                                 tabIndex={0}
-                                className='dropdown-content menu bg-base-100 rounded-box z-[1] mt-2 w-52 border-[2px] border-[#E0E0E0] p-2 shadow-lg'
+                                className='menu dropdown-content rounded-box z-[1] mt-2 w-52 border-[2px] border-[#E0E0E0] bg-base-100 p-2 shadow-lg'
                             >
                                 <li disabled className='pointer-events-none'>
                                     <p>Hi {name}</p>
@@ -317,7 +317,7 @@ export default function Dashboard() {
                 </div>
 
                 <div className='grid grid-cols-1 gap-8 xl:grid-cols-2'>
-                    <div className='relative flex h-[256px] flex-col space-y-2 rounded-2xl border-[2px] border-[#E0E0E0] p-5 shadow-lg'>
+                    <div className='relative flex h-[256px] flex-col space-y-2 rounded-2xl border-[2px] border-[#E0E0E0] bg-white p-5 shadow-lg'>
                         <div className='flex items-center'>
                             <p className='flex grow font-montserrat text-[18px] font-bold'>Top Products</p>
                             <p className='font-montserrat text-[12px] text-[#858585]'>May - June 2021</p>
@@ -328,7 +328,7 @@ export default function Dashboard() {
                             className='absolute bottom-1 flex grow'
                         />
                     </div>
-                    <div className='flex h-[256px] rounded-2xl border-[2px] border-[#E0E0E0] p-5 shadow-lg'>
+                    <div className='flex h-[256px] rounded-2xl border-[2px] border-[#E0E0E0] bg-white p-5 shadow-lg'>
                         <ProfileCard />
                     </div>
                 </div>
