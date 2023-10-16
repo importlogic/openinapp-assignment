@@ -34,7 +34,7 @@ export default function Dashboard() {
     const [name, setName] = useState('');
 
     function signOutGoogle() {
-        signOut('google', {callback: `${process.env.NEXT_PUBLIC_BASE_URL}`});
+        signOut('google', {callbackUrl: `${process.env.NEXT_PUBLIC_BASE_URL}`});
     }
 
     useEffect(() => {
