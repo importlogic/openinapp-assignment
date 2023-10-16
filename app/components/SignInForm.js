@@ -7,7 +7,7 @@ import { signIn } from 'next-auth/react';
 
 export default function SignInForm() {
     function signInGoogle() {
-        signIn('google', {callbackUrl: `${process.env.NEXT_PUBLIC_BASE_URL}/dashboard}`});
+        signIn('google', {callbackUrl: `${process.env.NEXT_PUBLIC_BASE_URL}/dashboard`});
     }
 
     return (
